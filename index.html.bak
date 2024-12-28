@@ -295,19 +295,19 @@
             <h2 class="text-center mb-5">Gallery</h2>
             <div class="album">
                 <div class="album-card" data-bs-toggle="modal" data-bs-target="#exteriorModal">
-                    <img src="img/thumbnail/exterior-thumbnail.jpg" alt="Exterior Album">
+                    <img src="exterior-thumbnail.jpg" alt="Exterior Album">
                     <h4>Exterior</h4>
                 </div>
                 <div class="album-card" data-bs-toggle="modal" data-bs-target="#poolModal">
-                    <img src="img/thumbnail/pool-thumbnail.jpg" alt="Poolside Album">
+                    <img src="pool-thumbnail.jpg" alt="Poolside Album">
                     <h4>Poolside</h4>
                 </div>
                 <div class="album-card" data-bs-toggle="modal" data-bs-target="#livingRoomModal">
-                    <img src="img/thumbnail/living-room-thumbnail.jpg" alt="Living Room Album">
+                    <img src="living-room-thumbnail.jpg" alt="Living Room Album">
                     <h4>Living Room</h4>
                 </div>
                 <div class="album-card" data-bs-toggle="modal" data-bs-target="#bedroomModal">
-                    <img src="img/thumbnail/bedroom-thumbnail.jpg" alt="Bedroom Album">
+                    <img src="bedroom-thumbnail.jpg" alt="Bedroom Album">
                     <h4>Bedroom</h4>
                 </div>
             </div>
