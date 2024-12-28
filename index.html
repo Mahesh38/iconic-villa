@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iconic Villa in Panchgani offers luxury amenities, stunning views, and an unforgettable stay. Book your dream getaway today!">
+    <title>Iconic Villa, Panchgani</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+		.navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffce54 !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('img/hero_section_image.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+			color: #ffce54;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .hero .btn {
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            color: white;
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        .hero .btn:hover {
+            background: linear-gradient(to right, #185a9d, #43cea2);
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(to right, #185a9d, #43cea2);
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        .navbar .nav-link {
+            color: white !important;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+        .navbar .nav-link.active {
+            color: #ffce54 !important;
+            font-weight: bold;
+        }
+        .navbar .nav-link:hover {
+            color: #ffce54 !important;
+        }
+		section {
+            scroll-margin-top: 50px;
+        }
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        .amenities-grid .amenity-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .amenities-grid .amenity-item:hover {
+            transform: scale(1.05);
+        }
+        .amenities-grid i {
+            font-size: 1.5rem;
+            color: #185a9d;
+        }
+        .testimonials {
+            background: linear-gradient(to right, #f8f9fa, #e0e5ec);
+            padding: 50px 0;
+        }
+        .testimonials .carousel-item {
+            text-align: center;
+        }
+        .testimonials .fa-user-circle {
+            font-size: 3rem;
+            color: #43cea2;
+        }
+		.modal-dialog {
+            max-width: 100%;
+            width: auto !important;
+        }
+        .carousel-inner img {
+            max-height: 80vh;
+            object-fit: cover;
+        }		
+        .album {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .album .album-card {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .album .album-card:hover {
+            transform: scale(1.05);
+        }
+        .album .album-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .album .album-card h4 {
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Playfair Display', serif;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            height: auto;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+		.nearby-attractions .attraction-card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+			height: 300px; /* Ensure uniform height */
+        }
+        .nearby-attractions .attraction-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .nearby-attractions .attraction-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+        .nearby-attractions .attraction-card:hover img {
+            opacity: 0.8;
+        }
+        .nearby-attractions .attraction-card .content {
+            padding: 15px;
+			height: calc(100% - 150px);
+        }
+        .nearby-attractions .attraction-card h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+		
+		.contact-section {
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            color: white;
+            padding: 50px 0;
+        }
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+        .contact-form button {
+            background: linear-gradient(to right, #ffce54, #ff8e00);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            width: 100%;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: linear-gradient(to right, #ff8e00, #ffce54);
+        }
+        .map-container iframe {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: linear-gradient(to right, #185a9d, #43cea2);
+            color: white;
+            padding: 20px 0;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Iconic Villa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#amenities">Amenities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nearby-attractions">Nearby Attractions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="hero">
+		<h1>Iconic Villa</h1>
+        <h2>Discover Serenity</h2>
+        <p>Luxurious Living Amidst Nature</p>
+        <a href="#contact" class="btn">Book Your Stay</a>
+    </div>
+	
+    <section id="about" class="py-5">
+        <div class="container" data-aos="fade-up">
+			<h2 class="text-center mb-5">About Us</h2>
+            <p>Nestled in the picturesque hills of Panchgani, Iconic Villa promises an indulgent escape from the everyday hustle. From a private swimming pool to mesmerizing sunset vistas, every detail is curated for your relaxation and adventure. Conveniently located near paragliding sites and surrounded by nature, our villa also offers the warm services of a dedicated caretaker to cater to your culinary and comfort needs.</p>
+        </div>
+    </section>
+
+    <section id="amenities" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Amenities</h2>
+            <div class="amenities-grid">
+                <div class="amenity-item"><i class="fas fa-swimming-pool"></i> Private Pool</div>
+                <div class="amenity-item"><i class="fas fa-sun"></i> Sunset Views</div>
+                <div class="amenity-item"><i class="fas fa-utensils"></i> Fully Equipped Kitchen</div>
+                <div class="amenity-item"><i class="fas fa-tv"></i> Entertainment</div>
+                <div class="amenity-item"><i class="fas fa-spa"></i> Spa</div>
+                <div class="amenity-item"><i class="fas fa-dumbbell"></i> Fitness Center</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Gallery</h2>
+            <div class="album">
+                <div class="album-card" data-bs-toggle="modal" data-bs-target="#exteriorModal">
+                    <img src="exterior-thumbnail.jpg" alt="Exterior Album">
+                    <h4>Exterior</h4>
+                </div>
+                <div class="album-card" data-bs-toggle="modal" data-bs-target="#poolModal">
+                    <img src="pool-thumbnail.jpg" alt="Poolside Album">
+                    <h4>Poolside</h4>
+                </div>
+                <div class="album-card" data-bs-toggle="modal" data-bs-target="#livingRoomModal">
+                    <img src="living-room-thumbnail.jpg" alt="Living Room Album">
+                    <h4>Living Room</h4>
+                </div>
+                <div class="album-card" data-bs-toggle="modal" data-bs-target="#bedroomModal">
+                    <img src="bedroom-thumbnail.jpg" alt="Bedroom Album">
+                    <h4>Bedroom</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modals for Albums -->
+    <div class="modal fade" id="exteriorModal" tabindex="-1" aria-labelledby="exteriorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exteriorModalLabel">Exterior</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="exteriorCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/ext-1.jpg" class="d-block w-100" alt="Exterior View 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/ext-2.jpg" class="d-block w-100" alt="Exterior View 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/ext-3.jpg" class="d-block w-100" alt="Exterior View 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/ext-4.jpg" class="d-block w-100" alt="Exterior View 4">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#exteriorCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#exteriorCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+	<!-- Modals for Albums -->
+    <div class="modal fade" id="poolModal" tabindex="-1" aria-labelledby="poolModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="poolModalLabel">Pool view</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="poolCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/pool-1.jpg" class="d-block w-100" alt="Pool View 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/pool-2.jpg" class="d-block w-100" alt="Pool View 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/pool-3.jpg" class="d-block w-100" alt="Pool View 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/pool-4.jpg" class="d-block w-100" alt="Pool View 4">
+                            </div>
+							<div class="carousel-item">
+                                <img src="img/pool-5.jpg" class="d-block w-100" alt="Pool View 4">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#poolCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#poolCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+	<!-- Modals for Albums -->
+    <div class="modal fade" id="livingRoomModal" tabindex="-1" aria-labelledby="livingRoomModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="livingRoomModalLabel">livingRoom view</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="livingRoomCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/hall-1.jpg" class="d-block w-100" alt="livingRoom View 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hall-2.jpg" class="d-block w-100" alt="livingRoom View 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hall-3.jpg" class="d-block w-100" alt="livingRoom View 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/kitchen-1.jpg" class="d-block w-100" alt="kitchen View">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#livingRoomCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#livingRoomCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+	<!-- Modals for Albums -->
+    <div class="modal fade" id="bedroomModal" tabindex="-1" aria-labelledby="bedroom ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bedroom ModalLabel">bedroom  view</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="bedroomCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/bed-1.jpg" class="d-block w-100" alt="bedroom  View 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/bed-2.jpg" class="d-block w-100" alt="bedroom  View 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/bed-3.jpg" class="d-block w-100" alt="bedroom  View 3">
+                            </div>
+							<div class="carousel-item">
+                                <img src="img/bed-4.jpg" class="d-block w-100" alt="bedroom  View 4">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#bedroomCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#bedroomCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+	<section id="nearby-attractions" class="nearby-attractions py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nearby Attractions</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="attraction-card">
+                        <img src="img/attraction/sydney-point.jpg" alt="Sydney Point">
+                        <div class="content">
+                            <h4>Sydney Point</h4>
+                            <p>Overlook the Krishna Valley and Dhom Dam, perfect for nature photography.</p>
+                            <p><strong>Distance:</strong> 3 km</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="attraction-card">
+                        <img src="img/attraction/parsi-point.jpg" alt="Parsi Point">
+                        <div class="content">
+                            <h4>Parsi Point</h4>
+                            <p>Offers lush green views and a tranquil atmosphere.</p>
+                            <p><strong>Distance:</strong> 4.5 km</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="attraction-card">
+                        <img src="img/attraction/table-land.jpg" alt="Table Land">
+                        <div class="content">
+                            <h4>Table Land</h4>
+                            <p>The second-largest plateau in Asia, ideal for trekking and sightseeing.</p>
+                            <p><strong>Distance:</strong> 5 km</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="attraction-card">
+                        <img src="img/attraction/harrison-folly.jpg" alt="Harrison Folly">
+                        <div class="content">
+                            <h4>Harrison Folly</h4>
+                            <p>An open hilltop offering panoramic views of the valleys.</p>
+                            <p><strong>Distance:</strong> 7 km</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="testimonials" class="testimonials py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Guests Say</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center">
+                        <i class="fas fa-user-circle"></i>
+                        <p class="mt-3">"Unmatched luxury and tranquility. Truly an unforgettable stay."</p>
+                        <small>- Mahesh Narkar</small>
+                    </div>
+                    <div class="carousel-item text-center">
+                        <i class="fas fa-user-circle"></i>
+                        <p class="mt-3">"The villa’s views and amenities exceeded all expectations."</p>
+                        <small>- Tukaram Kanthale</small>
+                    </div>
+					<div class="carousel-item">
+                        <i class="fas fa-user-circle"></i>
+                        <p class="mb-3">"From the beautiful interiors to the serene pool, Iconic Villa is a must-visit for anyone looking to relax and unwind."</p>
+                        <small>- Bhalchandra Bhoir</small>
+                    </div>
+                    <div class="carousel-item">
+                        <i class="fas fa-user-circle"></i>
+                        <p class="mb-3">"A hidden paradise in Panchgani! Iconic Villa offers an extraordinary experience that is worth every penny."</p>
+                        <small>- Jayesh Devgirikar</small>
+                    </div>
+                    <div class="carousel-item">
+                        <i class="fas fa-user-circle"></i>
+                        <p class="mb-3">"The perfect escape! The villa is beautifully maintained, and the staff went above and beyond to ensure our comfort."</p>
+                        <small>- Akash Kharade</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	<section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="map-container mb-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15560.051673924767!2d73.8079977!3d17.9475472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDU2JzUxLjIiTiA3M8KwNDgnMjguOCJF!5e0!3m2!1sen!2sin!4v1689842011011!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <ul>
+                        <li><strong>Phone:</strong> +91 98920 61159</li>
+                        <li><strong>Email:</strong> </li>
+                        <li><strong>Address:</strong> Talaimal, Dandeghar, Panchgani, Maharashtra 412803</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="4" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <p>&copy; 2024 Iconic Villa. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+	<script>
+        AOS.init();
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.navbar');
+            const links = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            nav.classList.toggle('scrolled', window.scrollY > 0);
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
